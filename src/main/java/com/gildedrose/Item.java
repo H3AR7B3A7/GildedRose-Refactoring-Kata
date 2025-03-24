@@ -1,5 +1,6 @@
 package com.gildedrose;
 
+// Can't touch this
 public class Item {
 
     public String name;
