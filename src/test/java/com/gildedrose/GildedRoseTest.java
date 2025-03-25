@@ -1,6 +1,9 @@
 package com.gildedrose;
 
-import static com.gildedrose.ItemType.*;
+import static com.gildedrose.itemsupport.itemstrategies.ItemStrategyFactory.AGED_BRIE;
+import static com.gildedrose.itemsupport.itemstrategies.ItemStrategyFactory.BACKSTAGE_PASSES;
+import static com.gildedrose.itemsupport.itemstrategies.ItemStrategyFactory.CONJURED_MANA_CAKE;
+import static com.gildedrose.itemsupport.itemstrategies.ItemStrategyFactory.SULFURAS;
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -136,12 +139,12 @@ class GildedRoseTest {
             @Test
             @DisplayName("The quality or sellIn never changes")
             void itemNeverDegrades() {
-                storeWith(SULFURAS.getName(), 10, 20);
+                storeWith(SULFURAS.getName(), 10, 80);
 
                 app.updateQuality();
 
                 assertThat(sellIn()).isEqualTo(10);
-                assertThat(quality()).isEqualTo(20);
+                assertThat(quality()).isEqualTo(80);
             }
         }
 
@@ -151,12 +154,12 @@ class GildedRoseTest {
             @Test
             @DisplayName("The quality or sellIn never changes")
             void itemNeverDegrades() {
-                storeWith(SULFURAS.getName(), 0, 0);
+                storeWith(SULFURAS.getName(), 0, 80);
 
                 app.updateQuality();
 
                 assertThat(sellIn()).isEqualTo(0);
-                assertThat(quality()).isEqualTo(0);
+                assertThat(quality()).isEqualTo(80);
             }
         }
     }
